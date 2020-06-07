@@ -7,17 +7,23 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* borders and paddings are no longer added to total width/height taht we specify for a box */
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /* 10px; */
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     color: #777;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     padding: 30px;
 }
@@ -36,15 +42,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
     /* https://bennettfeely.com/clippy/ */
     /* TODO: diff between setting it as 75vh vs 70% */
+    
+    box-sizing: border-box; /* borders and paddings are no longer added to total width/height taht we specify for a box */
 }
 
 .logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;    
+    top: 4rem;
+    left: 4rem;    
 }
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box {
@@ -60,15 +68,15 @@ body {
 
     /* Determines whether or not the 'back' side of a transformed element is visible when facing the viewer. With an identity transform, the front side of an element faces the viewer. */
     backface-visibility: hidden; 
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 /* block elements take the entire width and create line breaks before and after them */
 /* span elements inline by default */
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     /* animation NAME & DURATION required */
     animation-name: moveInLeft;
@@ -82,19 +90,19 @@ body {
 }
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     100% {
         opacity: 1;
@@ -104,10 +112,10 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100% {
         opacity: 1;
@@ -117,7 +125,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     100% {
         opacity: 1;
@@ -130,20 +138,20 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block; /* box model works on this element as if it is normal block; to specify paddings/height/width to element */
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s; /* animation needs to be assigned to the default state; not pseudo state */
 
     position: relative;
 }
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
 }
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0, 0.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, 0.2);
 }
 .btn-white {
     background-color: #fff;
@@ -155,7 +163,7 @@ body {
     display: inline-block; /* set it the same as the original element */
     height: 100%; /* relative to the orig element */
     width: 100%; /* relative to the orig element */
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
